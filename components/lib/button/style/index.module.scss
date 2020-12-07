@@ -1,0 +1,29 @@
+@import "~styles/theme/theme.scss";
+
+.button {
+  color: #fff;
+  background-color: $button-primary;
+  padding: 5px 10px;
+  border-radius: 2px;
+  border: none;
+  font-family: $font-primary;
+  font-size: 14px;
+
+  &_type_link {
+    background-color: unset;
+    color: $button-primary;
+    padding: 0;
+    border: none;
+    text-decoration: underline;
+  }
+
+  &_stat_danger {
+    background-color: $button-danger;
+    color: #fff;
+  }
+
+  &_stat_link_danger {
+    background-color: unset;
+    color: $button-danger;
+  }
+}

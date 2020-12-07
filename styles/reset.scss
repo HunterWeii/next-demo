@@ -1,0 +1,22 @@
+@import "./theme/theme.scss";
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing : border-box;
+}
+
+html,
+body {
+  height: 100vh;
+  font-family: $font-primary;
+  color: $font-color-primary;
+}
+
+a,
+button {
+  cursor: pointer;
+  &:focus { outline: none; }
+}

@@ -1,0 +1,43 @@
+@import "~styles/theme/theme.scss";
+
+.todos_sections {
+  background-color: $background-primary;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todos_sections_main {
+  position: relative;
+  width: 350px;
+  padding: 25px;
+  background-color: #fff;
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+  }
+
+  &_content {
+    padding: 20px 0;
+  }
+
+  &_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+}
+
+.NoTask {
+  padding-bottom: 20px;
+  text-align: center;
+
+  &_text { font-size: 12px; font-style: italic; }
+}

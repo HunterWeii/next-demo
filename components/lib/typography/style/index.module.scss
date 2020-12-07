@@ -1,0 +1,20 @@
+@import "~styles/theme/theme.scss";
+
+.typography {
+  color: $font-color-primary;
+
+  &_type {
+    &_secondary {
+      font-family: $font-secondary;
+    }
+  }
+
+  // styling
+  &_disabled {  
+    color: $font-color-disabled;
+  }
+
+  &_deleted {
+    text-decoration: line-through;
+  }
+}
