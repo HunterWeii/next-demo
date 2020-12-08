@@ -1,21 +1,10 @@
 import style from "./styles.module.scss";
 import {
   Title,
-  Text
 } from "components/lib/typography";
-import Button from "components/lib/button";
+import TodoForm from "components/pages/todos/TodoForm";
 import todoStore from "stores/todos/store";
 import { Provider } from "react-redux";
-
-function NoTaskDescription() {
-  return (
-    <div className={style.NoTask}>
-      <Text className={style.NoTask_text}>
-        There is no task in the list. Click Add Task to insert data.
-      </Text>
-    </div>
-  )
-}
 
 export default function index() {
   return (
@@ -27,16 +16,8 @@ export default function index() {
         </div>
         <Provider store={todoStore}>
           <div className={style.todos_sections_main_content}>
-            <div className={style.todos_sections_main_row}>
-              <Text>Practice Node js</Text>
-              <input type="checkbox" />
-            </div>
-            <div className={style.todos_sections_main_row}>
-              <Text>Practice Node js</Text>
-              <input type="checkbox" />
-            </div>
+            <TodoForm />
           </div>
-          <Button>Add Task</Button>
         </Provider>
       </main>
     </section>

@@ -1,0 +1,31 @@
+.todoForm {
+  &_row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    font-size: 14px;
+  }
+
+  &_button {
+    margin-left: 3px;
+    width: 70px;
+  }
+
+  &_input {
+    padding: 5px;
+    width: 55%;
+  }
+
+  &_buttonwrap {
+    margin-top: 20px;
+  }
+}
+
+.NoTask {
+  padding-bottom: 20px;
+  text-align: center;
+
+  &_text { font-size: 12px; font-style: italic; }
+}

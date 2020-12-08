@@ -11,7 +11,7 @@
 
 .todos_sections_main {
   position: relative;
-  width: 350px;
+  width: 450px;
   padding: 25px;
   background-color: #fff;
 
@@ -22,22 +22,6 @@
   }
 
   &_content {
-    padding: 20px 0;
+    padding-top: 20px;
   }
-
-  &_row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 10px 0;
-    font-size: 14px;
-  }
-}
-
-.NoTask {
-  padding-bottom: 20px;
-  text-align: center;
-
-  &_text { font-size: 12px; font-style: italic; }
 }

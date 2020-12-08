@@ -1,22 +1,35 @@
 import {
-  ADD_ITEM
+  ADD_ITEM,
+  DONE_ADD
 } from "./constant";
+
 const initState = [];
 
-const generateItem = () => ({
-  
-});
-
-
 export default function TodoReducers( state = initState, action ) {
-  const { type, payload } = action;
-  
+  const { type, payload = {} } = action;
   switch(type) {
-    case Add_ITEM:
-      // do something with payload and state
-      return state;
-      break
+    case ADD_ITEM:
+      const { item } = payload;
+      const newState = [
+        ...state,
+        item
+      ];
 
-    default: return state;
+      return newState;
+      break;
+    
+    case DONE_ADD:
+      const { id, text } = payload;
+      const itemIndex = state.findIndex(item => item.id === id);
+      const newItem = { ...state[itemIndex], text, actionType: 'display' }  
+      const copyState = [ ...state ];
+
+      copyState.splice(itemIndex, 1, newItem);
+
+      return copyState;
+      break;
+
+    default: 
+      return state;
   }
 }
