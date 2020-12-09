@@ -1,6 +1,9 @@
 import {  
   ADD_ITEM,
-  DONE_ADD
+  DONE_ADD,
+  DONE_TASK,
+  DELETE_TASK,
+  EDIT_TASK
 } from "./constant";
 
 const todoItemGenerator = () => ({
@@ -10,7 +13,7 @@ const todoItemGenerator = () => ({
   actionType: 'add'
 });
 
-export const addItem = () => {
+const addItem = () => {
   return {
     type: ADD_ITEM,
     payload: {
@@ -19,11 +22,42 @@ export const addItem = () => {
   }
 };
 
-export const doneAddItem = ( id, text ) => ({
+const doneAddItem = ( id, text ) => ({
   type: DONE_ADD,
   payload: { 
     id, 
-    text 
+    text,
+    actionType: 'display'
   }
 });
 
+const doneTaskItem = (id, isDone) => ({
+  type: DONE_TASK,
+  payload: {
+    id,
+    isDone
+  }
+});
+
+const deleteTaskItem = id => ({ 
+  type: DELETE_TASK,
+  payload: {
+    id
+  }
+ });
+
+const editTaskItem = id => ({
+  type: EDIT_TASK,
+  payload: {
+    id,
+    actionType: "edit"
+  }
+});
+
+export default {
+  addItem,
+  editTaskItem,
+  deleteTaskItem,
+  doneTaskItem,
+  doneAddItem
+} 

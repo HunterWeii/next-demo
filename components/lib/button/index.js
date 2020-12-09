@@ -7,12 +7,14 @@ export default function Button(props) {
     children,
     buttonType,
     danger,
+    shape,
     ...restProps
   } = props;
 
   const buttonCls = cls([
     style.button,
     buttonType ? style[`button_type_${buttonType}`] : "",
+    shape ? style[`button_shape_${shape}`] : "",
     {
       [ style.button_stat_danger ]: danger,
       [ style.button_stat_link_danger ]: danger && buttonType === 'link'
@@ -29,5 +31,6 @@ export default function Button(props) {
 
 Button.defaultProps = {
   buttonType: "",
-  danger: false
+  danger: false,
+  shape: ''
 }

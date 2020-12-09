@@ -1,0 +1,22 @@
+.dropdown {
+  position: relative;
+
+  &_button {
+    width: 25px;
+    height: 25px;
+    background-color: #ddd;
+  }
+
+  &_content {
+    position: absolute;
+    top: 100%;
+    margin-top: 4px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,.2);
+    z-index: 9;
+    display: none;
+
+    &_show { display: block }
+  }
+}

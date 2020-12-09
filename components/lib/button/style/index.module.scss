@@ -3,11 +3,14 @@
 .button {
   color: #fff;
   background-color: $button-primary;
-  padding: 5px 10px;
+  padding: 5px 15px;
   border-radius: 2px;
   border: none;
   font-family: $font-primary;
   font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &_type_link {
     background-color: unset;
@@ -15,6 +18,14 @@
     padding: 0;
     border: none;
     text-decoration: underline;
+  }
+
+  &_type_default {
+    background-color: unset;
+    color: $font-color-primary;
+    display: block;
+    width: 100%;
+    text-align: left;
   }
 
   &_stat_danger {
@@ -25,5 +36,10 @@
   &_stat_link_danger {
     background-color: unset;
     color: $button-danger;
+  }
+
+  &_shape_round {
+    padding: 0;
+    border-radius: 50%;
   }
 }

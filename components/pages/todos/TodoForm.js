@@ -4,16 +4,16 @@ import ActionTask from "./ActionTask";
 import DisplayTask from "./DisplayTask";
 import Button from "components/lib/button";
 import { connect } from "react-redux";
-import {
-  addItem,
-  doneAddItem
-} from "stores/todos/actions";
+import mapDispatchToProps from "stores/todos/actions";
 
 function TodoForm (props) {
   const {
     todoItems,
     addItem,
-    doneAddItem
+    doneAddItem,
+    doneTaskItem,
+    deleteTaskItem,
+    editTaskItem
   } = props;
 
   let Content = null;
@@ -29,7 +29,10 @@ function TodoForm (props) {
         actionType
       } = item;
 
-      const onDoneAddItem = text => doneAddItem(id, text);  
+      const onDoneAddItem = text => doneAddItem(id, text);
+      const onDoneTaskItem = isDone => doneTaskItem(id, isDone);
+      const onDeleteTaskItem = () => deleteTaskItem(id);
+      const onEditTaskItem = () => editTaskItem(id);
 
       let Display = null;
 
@@ -39,10 +42,19 @@ function TodoForm (props) {
             key={ id } 
             actionType={actionType} 
             text={text} 
-            onDoneAddItem={onDoneAddItem} />
+            onDoneAddItem={onDoneAddItem}
+            onDeleteItem={onDeleteTaskItem} />
         );
       } else {
-        Display = <DisplayTask key={id} text={text} isDone={isDone} />
+        Display = (
+          <DisplayTask 
+            key={id} 
+            text={text} 
+            isDone={isDone} 
+            onEditTask={onEditTaskItem}
+            onDoneTask={onDoneTaskItem} 
+            onDeleteItem={onDeleteTaskItem} />
+        );
       }
 
       return Display
@@ -63,10 +75,5 @@ function TodoForm (props) {
 const mapStateToProps = state => {
   return { todoItems: state }
 }
-
-const mapDispatchToProps = {
-  addItem,
-  doneAddItem
-};
 
 export default connect( mapStateToProps, mapDispatchToProps )(TodoForm)
