@@ -7,9 +7,7 @@ import PieChart from "components/pages/todos/Chart/PieChart";
 import todoStore from "stores/todos/store";
 import { Provider } from "react-redux";
 import dateFns from "utils/date-fn";
-import Button from "components/lib/button";
-import drawPDF from "utils/draw-pdf";
-import { useState } from "react";
+import DownloadReport from "components/component/DownloadReport";
 
 export default function index() {
   const {
@@ -19,27 +17,14 @@ export default function index() {
     day
   } = dateFns();
 
-  const [ buttonDisabled, setButtonDisabled ] = useState(false);
-  const [ buttonText, setButtonText ] = useState("Download");
-
-  const onReportDownload = async () => {
-    setButtonDisabled(true);
-    setButtonText("Generate ...");
-
-    const result = await drawPDF();
-    console.log(result);
-    setButtonDisabled(true);
-    setButtonText("Download")
-  };
-
   return (
     <section className={ style.todos_sections }>
       <main className={ style.todos_sections_main }>
-        <div className={style.todos_sections_main_header}>
-          <Title level="h5">{ date } {month} {year}, {day}</Title>
-          <Button disabled={ buttonDisabled} onClick={ onReportDownload }>{ buttonText }</Button>
-        </div>
         <Provider store={todoStore}>
+          <div className={style.todos_sections_main_header}>
+            <Title level="h5">{ date } {month} {year}, {day}</Title>
+            <DownloadReport />
+          </div>
           <PieChart/>
           <div className={style.todos_sections_main_content}>
             <TodoForm />

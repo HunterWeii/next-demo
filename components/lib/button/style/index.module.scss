@@ -12,6 +12,11 @@
   justify-content: center;
   align-items: center;
 
+  &:disabled {
+    background-color: $button-disabled;
+    opacity: .6;
+  }
+
   &_type_link {
     background-color: unset;
     color: $button-primary;
