@@ -14,7 +14,8 @@ export default function drawPDF () {
   return new Promise((resolve, reject) => {
     try {
       const doc = new PDFKit();
-      const stream = doc.pipe(blobStream())
+      const stream = doc.pipe(blobStream());
+      
       doc.addSVG(svgNode, 0, 0);
       doc.end();
 

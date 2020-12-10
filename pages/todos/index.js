@@ -27,7 +27,7 @@ export default function index() {
     setButtonText("Generate ...");
 
     const result = await drawPDF();
-
+    console.log(result);
     setButtonDisabled(true);
     setButtonText("Download")
   };
