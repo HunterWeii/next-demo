@@ -19,7 +19,7 @@ export default function DisplayTask(props) {
     onDoneTask(status);
   };
 
-  const [done, setDone] = useState(false);
+  const [done, setDone] = useState(isDone);
 
   return (
     <div className={style.todoForm_row}>
