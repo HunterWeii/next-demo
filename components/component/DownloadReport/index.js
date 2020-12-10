@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 
 function DownloadReport(props) {
   const {
+    item,
     finish,
     unfinish
   } = props;
@@ -23,12 +24,17 @@ function DownloadReport(props) {
   };
 
   return (
-    <Button disabled={ buttonDisabled} onClick={ onReportDownload }>{ buttonText }</Button>
+    <>
+    {  
+      item.length === 0 ? <Button disabled>{ buttonText }</Button> : <Button disabled={ buttonDisabled } onClick={ onReportDownload }>{ buttonText }</Button>
+    }
+    </>
   )
 }
 
 const mapPropsToState = state => {
   return {
+    item: state,
     finish: state.filter(item => item.isDone),
     unfinish: state.filter(item => !item.isDone)
   } 
