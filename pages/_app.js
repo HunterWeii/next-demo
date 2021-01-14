@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css';
 import '../styles/reset.scss';
 import Head from "next/head";
 
